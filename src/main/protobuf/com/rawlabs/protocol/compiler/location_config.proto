@@ -34,6 +34,7 @@ message LocationConfig {
     DropboxAccessTokenConfig dropboxAccessToken = 13;
     DropboxUsernamePasswordConfig dropboxUsernamePassword = 14;
     HttpHeadersConfig httpHeaders = 15;
+    DatabricksConfig databricks = 16;
     SecretConfig secret = 99;
     ErrorConfig error = 9999;
   }
@@ -152,6 +153,14 @@ message DropboxUsernamePasswordConfig {
 
 message HttpHeadersConfig {
   map<string, string> headers = 1;
+}
+
+message DatabricksConfig {
+  string host = 1;
+  string token = 2;
+  string catalog = 3;
+  string schema = 4;
+  string warehouse = 5;
 }
 
 // This is not used in practice but is kept for compatibility with FDW interface.
