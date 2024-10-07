@@ -10,8 +10,6 @@ ThisBuild / credentials += Credentials(
   sys.env.getOrElse("GITHUB_TOKEN", "")
 )
 
-val isRelease = sys.props.getOrElse("release", "false").toBoolean
-
 lazy val commonSettings = Seq(
   homepage := Some(url("https://www.raw-labs.com/")),
   organization := "com.raw-labs",
@@ -28,15 +26,11 @@ lazy val commonSettings = Seq(
   // Use cached resolution of dependencies
   // http://www.scala-sbt.org/0.13/docs/Cached-Resolution.html
   updateOptions := updateOptions.in(Global).value.withCachedResolution(true),
-  resolvers += "Github RAW snapi repo" at "https://maven.pkg.github.com/raw-labs/snapi",
-  resolvers ++= Seq(Resolver.mavenLocal),
-  resolvers ++= Resolver.sonatypeOssRepos("snapshots"),
-  resolvers ++= Resolver.sonatypeOssRepos("releases")
+  resolvers += "RAW Labs GitHub Package Registry" at "https://maven.pkg.github.com/raw-labs/_",
 )
 
 lazy val buildSettings = Seq(
   scalaVersion := "2.12.18",
-  isSnapshot := !isRelease,
   javacOptions ++= Seq(
     "-source",
     "21",
@@ -107,7 +101,6 @@ val isCI = sys.env.getOrElse("CI", "false").toBoolean
 
 lazy val publishSettings = Seq(
   versionScheme := Some("early-semver"),
-  publish / skip := false,
   publishMavenStyle := true,
   // Temporarily publishing to the Snapi repo until the migration is finished...
   publishTo := Some("GitHub raw-labs Apache Maven Packages" at "https://maven.pkg.github.com/raw-labs/snapi"),
