@@ -23,6 +23,6 @@ credentials += Credentials(
 
 resolvers += "RAW Labs GitHub Package Registry" at "https://maven.pkg.github.com/raw-labs/_"
 
-addSbtPlugin("com.raw-labs" % "sbt-module-patcher" % "0.1.1")
+addSbtPlugin("com.raw-labs" % "sbt-module-patcher" % "0.1.2")
 
 addSbtPlugin("com.raw-labs" % "sbt-versioner" % "0.1.0")
