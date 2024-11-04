@@ -19,7 +19,7 @@ package com.rawlabs.protocol.compiler;
 
 message LocationConfig {
   oneof config {
-    S3Config s3 = 1;
+    AwsConfig aws = 1;
     MySqlConfig mysql = 2;
     OracleConfig oracle = 3;
     PostgreSQLConfig postgresql = 4;
@@ -40,12 +40,7 @@ message LocationConfig {
   }
 }
 
-message S3Config {
-  optional S3AccessSecretKey accessSecretKey = 1;
-  optional string region = 2;
-}
-
-message S3AccessSecretKey {
+message AwsConfig {
   string accessKey = 1;
   string secretKey = 2;
 }
