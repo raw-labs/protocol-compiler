@@ -19,7 +19,7 @@ package com.rawlabs.protocol.compiler;
 
 message LocationConfig {
   oneof config {
-    AwsConfig aws = 1;
+    AWSAccessKeysConfig awsAccessKeys = 1;
     MySqlConfig mysql = 2;
     OracleConfig oracle = 3;
     PostgreSQLConfig postgresql = 4;
@@ -40,7 +40,7 @@ message LocationConfig {
   }
 }
 
-message AwsConfig {
+message AWSAccessKeysConfig {
   string accessKey = 1;
   string secretKey = 2;
 }
