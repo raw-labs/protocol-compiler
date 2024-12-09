@@ -26,7 +26,7 @@ lazy val commonSettings = Seq(
   // Use cached resolution of dependencies
   // http://www.scala-sbt.org/0.13/docs/Cached-Resolution.html
   updateOptions := updateOptions.in(Global).value.withCachedResolution(true),
-  resolvers += "RAW Labs GitHub Package Registry" at "https://maven.pkg.github.com/raw-labs/_",
+  resolvers += "RAW Labs GitHub Package Registry" at "https://maven.pkg.github.com/raw-labs/_"
 )
 
 lazy val buildSettings = Seq(
@@ -121,9 +121,9 @@ lazy val root = (project in file("."))
     strictBuildSettings,
     publishSettings,
     libraryDependencies ++= Seq(
-      "com.raw-labs" %% "protocol-raw" % "0.50.0" % "compile->compile;test->test;protobuf->protobuf"
+      "com.raw-labs" %% "protocol-raw" % "1.0.0" % "compile->compile;test->test;protobuf->protobuf"
     ),
-     // Set fixed versions
+    // Set fixed versions
     ProtobufConfig / version := "3.25.4",
     ProtobufConfig / protobufGrpcVersion := "1.62.2",
     // Forcing the dependency so that 'requires' annotation in module-info.java works properly.
