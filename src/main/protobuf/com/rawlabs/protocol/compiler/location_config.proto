@@ -35,6 +35,7 @@ message LocationConfig {
     DropboxUsernamePasswordConfig dropboxUsernamePassword = 14;
     HttpHeadersConfig httpHeaders = 15;
     DatabricksConfig databricks = 16;
+    CustomConfig custom = 98;
     SecretConfig secret = 99;
     ErrorConfig error = 9999;
   }
@@ -161,6 +162,13 @@ message DatabricksConfig {
   string catalog = 3;
   string schema = 4;
   string warehouse = 5;
+}
+
+message CustomConfig {
+  string type = 1;
+  string host = 2;
+  int32 port = 3;
+  map<string, string> options = 4;
 }
 
 // This is not used in practice but is kept for compatibility with FDW interface.
