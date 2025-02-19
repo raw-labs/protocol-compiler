@@ -165,9 +165,10 @@ message DatabricksConfig {
 }
 
 message CustomConfig {
-  string host = 1;
-  int32 port = 2;
-  map<string, string> options = 3;
+  string type = 1;
+  string host = 2;
+  int32 port = 3;
+  map<string, string> options = 4;
 }
 
 // This is not used in practice but is kept for compatibility with FDW interface.
